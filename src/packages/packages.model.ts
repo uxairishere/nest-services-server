@@ -13,7 +13,13 @@ export const PackageSchema = new mongoose.Schema({
         type: Boolean
     },
     services:{ 
-        type: Array 
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'Service' 
+    },
+
+
+    quantity: {
+        type: [mongoose.Schema.Types.ObjectId],
     }
 })
 
@@ -22,5 +28,5 @@ export interface Package extends mongoose.Document {
     name: string,
     desc: string,
     visibility: boolean,
-    service: []
+    service: [mongoose.Schema.Types.ObjectId]
 }
