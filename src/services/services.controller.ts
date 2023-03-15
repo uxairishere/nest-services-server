@@ -36,8 +36,8 @@ export class ServicesController {
         @Body('visibility') serviceVisibility: boolean,
         @Body('price') servicePrice: number,
         ) {
-            await this.servicesService.updateService(serviceID, serviceName, serviceDesc, serviceVisibility, servicePrice)
-            return null;
+             const service = this.servicesService.updateService(serviceID, serviceName, serviceDesc, serviceVisibility, servicePrice)
+            return service;
         }
 
     @Delete(':id')

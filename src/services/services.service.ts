@@ -56,9 +56,8 @@ export class ServicesService {
         updatedService.save()
     }
 
-    deleteService(servideId: string) {
-        const index = this.findService(servideId)[1];
-        this.services.splice(index, 1);
+    async deleteService(servideId: string) {
+        await this.serviceModel.deleteOne({_id: servideId}).exec()
     }
 
     private async findService(id: string): Promise<Service> {
