@@ -7,13 +7,14 @@ import { Model } from "mongoose";
 export class PackageService {
     constructor(@InjectModel('Package') private readonly packageModel: Model<Package>) {}
 
-    async insertPackage(name: string, desc: string, visibility: boolean, services: []){
+    async insertPackage(name: string, desc: string, visibility: boolean, services: [], quantity: object){
         try {
             const newPackage = new this.packageModel({
                 name: name,
                 desc: desc,
                 visibility: visibility,
-                services: services
+                services: services,
+                quantity: quantity
             })
             const result = await newPackage.save()
             console.log(result);

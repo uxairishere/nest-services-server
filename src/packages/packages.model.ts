@@ -16,11 +16,10 @@ export const PackageSchema = new mongoose.Schema({
         type: [mongoose.Schema.Types.ObjectId],
         ref: 'Service' 
     },
-
-
     quantity: {
-        type: [mongoose.Schema.Types.ObjectId],
+        type: Object,
     }
+
 })
 
 export interface Package extends mongoose.Document {
@@ -29,4 +28,5 @@ export interface Package extends mongoose.Document {
     desc: string,
     visibility: boolean,
     service: [mongoose.Schema.Types.ObjectId]
+    quantity: object
 }

@@ -11,9 +11,10 @@ export class PackagesController {
         @Body('desc') packageDesc: string,
         @Body('visibility') packageVisibility: boolean,
         @Body('services') packageServices: [],
+        @Body('quantity') servicesQuantity: object
 
     ) {
-        const generateId = await this.packagesService.insertPackage(packageName, packageDesc, packageVisibility,packageServices)
+        const generateId = await this.packagesService.insertPackage(packageName, packageDesc, packageVisibility,packageServices,servicesQuantity)
         return {id: generateId}
     }
 
