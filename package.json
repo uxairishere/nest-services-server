@@ -27,6 +27,8 @@
     "@types/mongoose": "^5.11.97",
     "@types/passport-local": "^1.0.35",
     "mongoose": "^7.0.1",
+    "nodemailer": "^6.9.1",
+    "nodemailer-smtp-transport": "^2.7.4",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
