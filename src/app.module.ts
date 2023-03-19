@@ -5,18 +5,19 @@ import { AppService } from './app.service';
 import { ServicesModule } from './services/services.module';
 import { PackagesModule } from './packages/packages.module';
 import { UsersModule } from './users/users.module';
+import { ConfigModule } from '@nestjs/config';
 import { EmailservicesModule } from './emailservices/emailservices.module';
-import { EmailserivcesController } from './emailserivces/emailserivces.controller';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     ServicesModule,
     PackagesModule,
-    MongooseModule.forRoot('mongodb://127.0.0.1:27017/nestService', { dbName: 'nestServices' }),
-    UsersModule,
-    EmailservicesModule
+    EmailservicesModule,
+    MongooseModule.forRoot('mongodb://127.0.0.1:27017',  {dbName: 'nestServices'}),
+    UsersModule
   ],
-  controllers: [AppController, EmailserivcesController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule { }
